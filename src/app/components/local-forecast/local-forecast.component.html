@@ -1,0 +1,30 @@
+<div class="ui segment centered container">
+  <div class="ui fluid input item">
+    <input class="" type="text" (keyup)="onNameKeyUp($event)">
+  </div>
+  <br>
+  <button class="ui primary fluid button" (click)="getWeather()">Get Weather!</button>
+</div>
+
+<div *ngIf="weatherData?.length > 0;">
+  <div class="ui raised very padded text container segment">
+    <div class="ui container segmented centered">
+      <div class='ui segment'>
+        <h4 class="ui header">{{city}}'s Weather Report</h4>
+      </div>
+      <Strong>Over All Summary : </Strong>{{weatherData[0]['currently']['summary']}}
+      <hr>
+      <Strong>Temperature : </Strong>{{weatherData[0]['currently']['temperature']}} degree F
+      <hr>
+      <Strong>Humidity : </Strong>{{weatherData[0]['currently']['humidity']}} %
+      <hr>
+      <Strong>Pressure : </Strong>{{weatherData[0]['currently']['pressure']}} N/m2
+      <hr>
+      <Strong>Wind Speed : </Strong>{{weatherData[0]['currently']['windSpeed']}} mph
+    </div>
+  </div>
+</div>
+
+
+
+

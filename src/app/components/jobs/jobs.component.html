@@ -1,0 +1,12 @@
+<div class="ui container">
+  <div class="ui segment" *ngFor = "let company of companies" >
+    <a class="ui ribbon label">{{company.name}}</a>
+    <div>{{company.desc}}</div>
+    <div class="ui star rating" data-rating="3"></div>
+    <div>
+      <button  class="ui primary button">Apply</button>
+      <button class="ui button" (click)="moreInfo()" (click)="moreInfo(company.name)" >More</button>
+    </div>
+  </div>
+</div>
+

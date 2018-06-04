@@ -1,0 +1,20 @@
+<div class="ui container segment">
+
+  <form class="ui form" (ngSubmit)="onSubmit()">
+    <div>
+      <div>
+        <input type="text" placeholder="Name" class="ui input" [(ngModel)]="user.name" name="name" >
+      </div>
+      <br>
+      <div>
+        <input type="email" placeholder="Email" class="ui input" [(ngModel)]="user.email" name="email" required="true">
+      </div>
+      <br>
+      <div>
+        <input type="number" placeholder="Phone" class="ui input" [(ngModel)]="user.phone" name="phone" required="true">
+      </div>
+    </div>
+    <br>
+    <input type="submit" value="Submit" class="ui primary button">
+  </form>
+</div>

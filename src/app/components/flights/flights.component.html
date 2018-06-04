@@ -1,0 +1,55 @@
+<div class="ui segment centered container">
+  <div class='ui fluid input item'>
+    <input class="" type="text" [(ngModel)]='origin' placeholder='Source Place'>
+  </div>
+  <br>
+  <div class='ui fluid input item'>
+    <input class="" type="text" [(ngModel)]='destination' placeholder="Destination Place">
+  </div>
+  <br>
+  <div class='ui fluid input item'>
+    <input class="" type="date" [(ngModel)]='departure_date' placeholder="Departure Date">
+  </div>
+  <br>
+  <button class="ui primary fluid button" (click)="getFlights()">Get Flights!</button>
+</div>
+
+<div *ngIf="flightData?.length > 0;">
+  <div class="ui raised very padded text container segment">
+    <div class="ui container segmented centered">
+      <div class='ui segment'>
+        <h4 class="ui header">Flight Details</h4>
+      </div>
+      <div class="ui container">
+        <Strong>Currency : </Strong>{{flightData[0]['currency']}}
+        <hr>
+      </div>
+      <div *ngIf="flightData[0]['results']?.length > 0;">
+        <div class="ui container segmented centered">
+          <div *ngFor="let result of flightData[0]['results']" class="ui segmented container">
+            <div><strong>Total Price : </strong>{{result['fare']['total_price']}}</div>
+            <hr>
+            <div><strong>Total Seats Remaining : </strong>{{result['itineraries'][0]['outbound']['flights'][0]['booking_info']['seats_remaining']}}</div>
+            <br>
+            <div><strong>Travel Class : </strong>{{result['itineraries'][0]['outbound']['flights'][0]['booking_info']['travel_class']}} </div>
+            <br>
+            <div *ngFor = "let flight of result['itineraries'][0]['outbound']['flights']">
+              <div><strong>Aircraft : </strong>{{flight['aircraft']}} </div>
+              <br>
+              <div><strong>Destination Airport : </strong>{{flight['destination']['airport']}} </div>
+              <br>
+              <div><strong>Origin Airport : </strong>{{flight['origin']['airport']}} </div>
+              <br>
+              <div><strong>Flight Number : </strong>{{flight['flight_number']}} </div>
+              <hr>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
